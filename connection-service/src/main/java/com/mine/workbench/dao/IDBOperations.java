@@ -5,11 +5,15 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.mine.workbench.model.Event;
 import com.mine.workbench.model.Vaccine;
 
 @Service
 public interface IDBOperations {
 
 	List<Vaccine> getAllVx() throws SQLException;
-	 Vaccine getVaccine(String id);
+
+	Vaccine getVaccine(String id);
+
+	void createEvent(Event event);
 }

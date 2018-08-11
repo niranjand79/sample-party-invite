@@ -9,8 +9,10 @@ public class Event {
 	private String hostLastName;
 	private String location;
 	private Date eventDate;
-	private String evenMessage;
+	private String eventMessage;
 	private EventStatus status;
+	
+	public Event(){}
 
 	/**
 	 * Get the value of location
@@ -76,16 +78,16 @@ public class Event {
 	/**
 	 * @return the evenMessage
 	 */
-	public String getEvenMessage() {
-		return evenMessage;
+	public String getEventMessage() {
+		return eventMessage;
 	}
 
 	/**
 	 * @param evenMessage
 	 *            the evenMessage to set
 	 */
-	public void setEvenMessage(String evenMessage) {
-		this.evenMessage = evenMessage;
+	public void setEventMessage(String eventMessage) {
+		this.eventMessage = eventMessage;
 	}
 
 	/**
