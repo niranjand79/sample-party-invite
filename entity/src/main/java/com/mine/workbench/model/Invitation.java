@@ -1,13 +1,17 @@
 package com.mine.workbench.model;
 
+import java.util.Date;
+
 public class Invitation {
 
 	private Long id;
 	private Long eventId;
-	private String receipentFirstName;
-	private String receipentLastName;
+	private String recipientFirstName;
+	private String recipientLastName;
 	private String recipientEmail;
 	private InvitationStatus response;
+	private Date responseDate;
+	private String responseMessage;
 
 	public Invitation() {
 		this.response = InvitationStatus.NOT_RESPONDED;
@@ -39,16 +43,16 @@ public class Invitation {
 	/**
 	 * @return the receipentFirstName
 	 */
-	public String getReceipentFirstName() {
-		return receipentFirstName;
+	public String getRecipientFirstName() {
+		return recipientFirstName;
 	}
 
 	/**
 	 * @param receipentFirstName
 	 *            the receipentFirstName to set
 	 */
-	public void setReceipentFirstName(String receipentFirstName) {
-		this.receipentFirstName = receipentFirstName;
+	public void setRecipientFirstName(String receipentFirstName) {
+		this.recipientFirstName = receipentFirstName;
 	}
 
 	/**
@@ -69,16 +73,16 @@ public class Invitation {
 	/**
 	 * @return the receipentLastName
 	 */
-	public String getReceipentLastName() {
-		return receipentLastName;
+	public String getRecipientLastName() {
+		return recipientLastName;
 	}
 
 	/**
 	 * @param receipentLastName
 	 *            the receipentLastName to set
 	 */
-	public void setReceipentLastName(String receipentLastName) {
-		this.receipentLastName = receipentLastName;
+	public void setRecipientLastName(String receipentLastName) {
+		this.recipientLastName = receipentLastName;
 	}
 
 	/**
@@ -93,6 +97,34 @@ public class Invitation {
 	 */
 	public void setRecipientEmail(String recipientEmail) {
 		this.recipientEmail = recipientEmail;
+	}
+
+	/**
+	 * @return the responseDate
+	 */
+	public Date getResponseDate() {
+		return responseDate;
+	}
+
+	/**
+	 * @param responseDate the responseDate to set
+	 */
+	public void setResponseDate(Date responseDate) {
+		this.responseDate = responseDate;
+	}
+
+	/**
+	 * @return the responseMessage
+	 */
+	public String getResponseMessage() {
+		return responseMessage;
+	}
+
+	/**
+	 * @param responseMessage the responseMessage to set
+	 */
+	public void setResponseMessage(String responseMessage) {
+		this.responseMessage = responseMessage;
 	}
 
 }

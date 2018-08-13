@@ -2,16 +2,29 @@ package com.mine.workbench.model;
 
 public enum InvitationStatus {
 
-	ATTENDING(1), NOT_ATTENDING(2), MAYBE_ATTENDING(3), NOT_RESPONDED(0);
+	NOT_RESPONDED(0,"Not responded"),
+	ATTENDING(1,"Attending"), 
+	NOT_ATTENDING(2,"Not attending"), 
+	MAYBE_ATTENDING(3,"Tentative"); 
 
-	private final int label;
+	private final int dbValue;
+	private String displayName;
 
-	private InvitationStatus(int label) {
-		this.label = label;
+	private InvitationStatus(int dbValue, String displayName) {
+		this.dbValue = dbValue;
+		this.displayName=displayName;
+	}
+	
+	public static InvitationStatus getEnumValue(int status){
+		return values()[status];
 	}
 
-	public int getLabel() {
-		return this.label;
+	public int getDbValue() {
+		return this.dbValue;
+	}
+	
+	public String getDisplayName(){
+		return this.displayName;
 	}
 
 }

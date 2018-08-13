@@ -13,7 +13,7 @@
 	</parent>
 	<modules>
 		<module>entity</module>
-		<module>connection-service</module>
+		<module>database-service</module>
 		<module>web-controllers</module>
 	</modules>
 	<properties>

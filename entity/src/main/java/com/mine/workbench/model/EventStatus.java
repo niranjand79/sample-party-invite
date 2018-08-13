@@ -1,16 +1,27 @@
 package com.mine.workbench.model;
 
 public enum EventStatus {
-	NEW(0),
-	COMPLETED(1),
-	CANCELLED(-1);
-	
-	private final int label;
-	private EventStatus(int val){
-		this.label=val;
+	NEW(0, "New"), 
+	COMPLETED(1, "Completed"), 
+	CANCELLED(2, "Cancelled");
+
+	private final int dbValue;
+	private String displayName;
+
+	private EventStatus(int dbValue, String displayName) {
+		this.dbValue = dbValue;
+		this.displayName = displayName;
 	}
-	
-	public int getLabel(){
-		return this.label;
+
+	public static EventStatus getEnumValue(int status) {
+		return values()[status];
+	}
+
+	public int getDbValue() {
+		return this.dbValue;
+	}
+
+	public String getDisplayName() {
+		return this.displayName;
 	}
 }
