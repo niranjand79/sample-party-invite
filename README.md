@@ -71,3 +71,5 @@ sample output:
 }
 
 2) schema.sql will create tables in h2 database once you load the application using spring boot starter.
+
+3) You can compile the application using parent-module pom.xml (mvn clean install) and once it successfully compiles, run the application by runnung AppMain.java from web-controllers module or alternatively executing mvn:spring-boot:run from web-controller package.
