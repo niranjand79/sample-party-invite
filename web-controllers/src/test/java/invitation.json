@@ -1,0 +1,21 @@
+{
+		"name": "birthday",
+		"hostFirstName": "Niranjan",
+		"hostLastName": "Deshpande",
+		"eventMessage":"Please attend",
+		"eventDate":"Sat, 3 Feb 2018 05:30:00 PDT",
+		"location":"CMR",
+		"invitations":[
+			{
+				"recipientFirstName":"Virat",
+				"recipientLastName":"Kohli",
+				"recipientEmail":"Virat@gmail.com"
+			},
+			{
+				"recipientFirstName":"Miheer",
+				"recipientLastName":"Deshpande",
+				"recipientEmail":"miheer@gmail.com"
+			}
+		]
+
+}
