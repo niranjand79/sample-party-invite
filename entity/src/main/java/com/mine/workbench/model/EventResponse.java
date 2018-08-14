@@ -1,5 +1,9 @@
 package com.mine.workbench.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+@JsonInclude(value = Include.NON_NULL)
 public class EventResponse {
 	private Event event;
 	private int totalInvitations;
@@ -7,6 +11,8 @@ public class EventResponse {
 	private int notAttending;
 	private int tentative;
 	private int notResponded;
+	private String status;
+	private String errorMEssage;
 
 	public int getTotalInvitations() {
 		return totalInvitations;
@@ -60,5 +66,33 @@ public class EventResponse {
 	 */
 	public void setEvent(Event event) {
 		this.event = event;
+	}
+
+	/**
+	 * @return the status
+	 */
+	public String getStatus() {
+		return status;
+	}
+
+	/**
+	 * @param status the status to set
+	 */
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	/**
+	 * @return the errorMEssage
+	 */
+	public String getErrorMEssage() {
+		return errorMEssage;
+	}
+
+	/**
+	 * @param errorMEssage the errorMEssage to set
+	 */
+	public void setErrorMEssage(String errorMEssage) {
+		this.errorMEssage = errorMEssage;
 	}
 }

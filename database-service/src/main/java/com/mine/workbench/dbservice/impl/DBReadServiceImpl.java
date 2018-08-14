@@ -1,6 +1,7 @@
-package com.mine.workbench.dao.api;
+package com.mine.workbench.dbservice.impl;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,7 +14,8 @@ import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
-import com.mine.workbench.dao.exception.DatabaseServiceException;
+import com.mine.workbench.dbservice.IDBReadService;
+import com.mine.workbench.dbservice.exception.DatabaseServiceException;
 import com.mine.workbench.model.Event;
 import com.mine.workbench.model.EventStatus;
 import com.mine.workbench.model.Invitation;
@@ -57,15 +59,14 @@ public class DBReadServiceImpl implements IDBReadService {
 	@Override
 	public Event findEvent(Long eventId) throws DatabaseServiceException {
 		// add queries to constant file
-		Event event;
 		try {
-			event = this.jdbcTemplate.queryForObject("SELECT * FROM EVENT WHERE EVENT_ID=?", new Object[] { eventId },
+			return this.jdbcTemplate.queryForObject("SELECT * FROM EVENT WHERE EVENT_ID=?", new Object[] { eventId },
 					new RowMapper<Event>() {
 						@Override
 						public Event mapRow(ResultSet rs, int rowNum) throws SQLException {
 							Event event = new Event();
 							event.setName(rs.getString("EVENT_NAME"));
-							event.setEventDate(rs.getTimestamp("EVENT_DATE"));
+							event.setEventDate(Date.valueOf(rs.getTimestamp("EVENT_DATE").toLocalDateTime().toLocalDate()));
 							event.setEventMessage(rs.getString("EVENT_MESSAGE"));
 							event.setId(rs.getLong("EVENT_ID"));
 							event.setHostFirstName(rs.getString("HOST_FIRST_NAME"));
@@ -78,7 +79,6 @@ public class DBReadServiceImpl implements IDBReadService {
 		} catch (Exception e) {
 			throw new DatabaseServiceException("Error while finding an event", e);
 		}
-		return event;
 	}
 
 }

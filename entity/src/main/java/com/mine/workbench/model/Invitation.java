@@ -2,6 +2,15 @@ package com.mine.workbench.model;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+/**
+ * Model class for Invitation for an event
+ * @author niranjandeshpande
+ *
+ */
+@JsonInclude(value = Include.NON_NULL)
 public class Invitation {
 
 	private Long id;

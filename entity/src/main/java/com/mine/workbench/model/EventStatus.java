@@ -1,5 +1,10 @@
 package com.mine.workbench.model;
 
+/**
+ * Enumeration for event status
+ * @author niranjandeshpande
+ *
+ */
 public enum EventStatus {
 	NEW(0, "New"), 
 	COMPLETED(1, "Completed"), 

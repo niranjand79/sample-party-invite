@@ -2,6 +2,16 @@ package com.mine.workbench.model;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+/**
+ * Model class for Event
+ * 
+ * @author niranjandeshpande
+ *
+ */
+@JsonInclude(value = Include.NON_NULL)
 public class Event {
 	private Long id;
 	private String name;
@@ -11,8 +21,9 @@ public class Event {
 	private Date eventDate;
 	private String eventMessage;
 	private EventStatus status;
-	
-	public Event(){}
+
+	public Event() {
+	}
 
 	/**
 	 * Get the value of location
@@ -98,7 +109,8 @@ public class Event {
 	}
 
 	/**
-	 * @param hostFirstName the hostFirstName to set
+	 * @param hostFirstName
+	 *            the hostFirstName to set
 	 */
 	public void setHostFirstName(String hostFirstName) {
 		this.hostFirstName = hostFirstName;
@@ -112,7 +124,8 @@ public class Event {
 	}
 
 	/**
-	 * @param hostLastName the hostLastName to set
+	 * @param hostLastName
+	 *            the hostLastName to set
 	 */
 	public void setHostLastName(String hostLastName) {
 		this.hostLastName = hostLastName;
@@ -126,7 +139,8 @@ public class Event {
 	}
 
 	/**
-	 * @param status the status to set
+	 * @param status
+	 *            the status to set
 	 */
 	public void setStatus(EventStatus status) {
 		this.status = status;

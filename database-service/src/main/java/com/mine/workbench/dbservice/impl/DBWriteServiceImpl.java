@@ -1,4 +1,4 @@
-package com.mine.workbench.dao.api;
+package com.mine.workbench.dbservice.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,7 +14,8 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.mine.workbench.dao.exception.DatabaseServiceException;
+import com.mine.workbench.dbservice.IDBWriteService;
+import com.mine.workbench.dbservice.exception.DatabaseServiceException;
 import com.mine.workbench.model.Event;
 import com.mine.workbench.model.EventInvitation;
 import com.mine.workbench.model.Invitation;

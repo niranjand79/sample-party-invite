@@ -1,5 +1,10 @@
 package com.mine.workbench.model;
 
+/**
+ * Enumeration for invitation status
+ * @author niranjandeshpande
+ *
+ */
 public enum InvitationStatus {
 
 	NOT_RESPONDED(0,"Not responded"),

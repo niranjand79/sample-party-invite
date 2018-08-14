@@ -1,10 +1,16 @@
-package com.mine.workbench.dao.exception;
+package come.mine.workbench.validationservice.exception;
 
-public class DatabaseServiceException extends Exception {
+/**
+ * Exception class for database service
+ * @author niranjandeshpande
+ *
+ */
+public class ValidatorServiceException extends Exception {
+
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 2L;
 
 	/**
 	 * Parameterized constructor with error
@@ -12,7 +18,7 @@ public class DatabaseServiceException extends Exception {
 	 * @param throwable
 	 *            error object
 	 */
-	public DatabaseServiceException(final Throwable throwable) {
+	public ValidatorServiceException(final Throwable throwable) {
 		super(throwable);
 	}
 
@@ -24,7 +30,7 @@ public class DatabaseServiceException extends Exception {
 	 * @param throwable
 	 *            error object
 	 */
-	public DatabaseServiceException(final String message, final Throwable throwable) {
+	public ValidatorServiceException(final String message, final Throwable throwable) {
 		super(message, throwable);
 	}
 
@@ -34,7 +40,7 @@ public class DatabaseServiceException extends Exception {
 	 * @param message
 	 *            error message
 	 */
-	public DatabaseServiceException(final String message) {
+	public ValidatorServiceException(final String message) {
 		super(message);
 	}
 

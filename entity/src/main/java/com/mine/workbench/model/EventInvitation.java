@@ -2,6 +2,12 @@ package com.mine.workbench.model;
 
 import java.util.List;
 
+/**
+ * Model class to encapsulate event and its invitations
+ * 
+ * @author niranjandeshpande
+ *
+ */
 public class EventInvitation {
 
 	private Event event;
