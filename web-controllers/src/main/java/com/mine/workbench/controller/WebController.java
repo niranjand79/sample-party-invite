@@ -32,7 +32,7 @@ public class WebController {
 	private IDBWriteService dbWriteService;
 	@Autowired
 	private IDBReadService dbReadService;
-	// @Autowired
+	// This should have been auto-wired
 	private IValidator validatorService;
 	private static final String ERROR="ERROR";
 	private static final String SUCCESS="SUCCESS";
@@ -88,9 +88,7 @@ public class WebController {
 	public ResponseEntity<ResponseStatus> createInvitation(@RequestBody String inputJson) {
 		ResponseStatus responseJson = new ResponseStatus();
 		try {
-			this.validatorService = new ValidatorServiceImpl(); // this should
-																// have been
-																// auto-wired
+			this.validatorService = new ValidatorServiceImpl(); 
 			EventInvitation eventInvitation = this.validatorService.validateEventCreation(inputJson);
 			dbWriteService.createInvitation(eventInvitation);
 			responseJson.setStatus(SUCCESS);
