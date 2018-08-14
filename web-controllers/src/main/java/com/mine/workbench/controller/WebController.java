@@ -34,6 +34,8 @@ public class WebController {
 	private IDBReadService dbReadService;
 	// @Autowired
 	private IValidator validatorService;
+	private static final String ERROR="ERROR";
+	private static final String SUCCESS="SUCCESS";
 
 	/**
 	 * Get request for genrating JSON for event and its responses
@@ -65,12 +67,12 @@ public class WebController {
 					}
 				}
 			} else {
-				eventResponse.setStatus("ERROR");
+				eventResponse.setStatus(ERROR);
 				eventResponse.setErrorMEssage("Event doesn't exist.");
 				return new ResponseEntity<EventResponse>(eventResponse, HttpStatus.BAD_REQUEST);
 			}
 		} catch (DatabaseServiceException e) {
-			eventResponse.setStatus("ERROR");
+			eventResponse.setStatus(ERROR);
 			eventResponse.setErrorMEssage("Could not process the request. " + e.getMessage());
 			return new ResponseEntity<EventResponse>(eventResponse, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
@@ -91,15 +93,15 @@ public class WebController {
 																// auto-wired
 			EventInvitation eventInvitation = this.validatorService.validateEventCreation(inputJson);
 			dbWriteService.createInvitation(eventInvitation);
-			responseJson.setStatus("SUCCESS");
+			responseJson.setStatus(SUCCESS);
 			responseJson.setMessage("event and invitations created.");
 			return new ResponseEntity<ResponseStatus>(responseJson, HttpStatus.OK);
 		} catch (ValidatorServiceException e) {
-			responseJson.setStatus("ERROR");
+			responseJson.setStatus(ERROR);
 			responseJson.setMessage(e.getMessage());
 			return new ResponseEntity<ResponseStatus>(responseJson, HttpStatus.BAD_REQUEST);
 		} catch (DatabaseServiceException e1) {
-			responseJson.setStatus("ERROR");
+			responseJson.setStatus(ERROR);
 			responseJson.setMessage(e1.getMessage());
 			return new ResponseEntity<ResponseStatus>(responseJson, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
@@ -116,14 +118,14 @@ public class WebController {
 		try {
 			int updateCount = this.dbWriteService.updateInvitation(invitation);
 			if (updateCount == 0) {
-				responseJson.setStatus("ERROR");
+				responseJson.setStatus(ERROR);
 				responseJson.setMessage("Could not update the invitation");
 			} else {
-				responseJson.setStatus("SUCCESS");
+				responseJson.setStatus(SUCCESS);
 				responseJson.setMessage("Invitation updated");
 			}
 		} catch (DatabaseServiceException e) {
-			responseJson.setStatus("ERROR");
+			responseJson.setStatus(ERROR);
 			responseJson.setMessage(e.getMessage());
 			return new ResponseEntity<ResponseStatus>(responseJson, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
@@ -141,14 +143,14 @@ public class WebController {
 		try {
 			int updateCount = this.dbWriteService.updateEvent(event);
 			if (updateCount == 0) {
-				responseJson.setStatus("ERROR");
+				responseJson.setStatus(ERROR);
 				responseJson.setMessage("Could not update the event.");
 			} else {
-				responseJson.setStatus("SUCCESS");
+				responseJson.setStatus(SUCCESS);
 				responseJson.setMessage("Event updated");
 			}
 		} catch (DatabaseServiceException e) {
-			responseJson.setStatus("ERROR");
+			responseJson.setStatus(ERROR);
 			responseJson.setMessage(e.getMessage());
 			return new ResponseEntity<ResponseStatus>(responseJson, HttpStatus.INTERNAL_SERVER_ERROR);
 		}

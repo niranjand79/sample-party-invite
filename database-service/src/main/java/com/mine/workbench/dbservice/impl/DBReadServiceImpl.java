@@ -29,7 +29,6 @@ public class DBReadServiceImpl implements IDBReadService {
 
 	@Override
 	public List<Invitation> findResponsesForEvent(Long eventId) throws DatabaseServiceException {
-		// try using java 8 for interface implementation
 		List<Invitation> lstInvitation = new ArrayList<>();
 		try {
 			lstInvitation = this.jdbcTemplate.query(new PreparedStatementCreator() {
