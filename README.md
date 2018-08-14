@@ -1,7 +1,9 @@
 
+* The overall project structure is based of services. database-service--> entity module --> Validation service --> web controller
+
 1) API's exposed:
 
-1) POST : localhost:8080/eventservice/invitation - This will create an event and invitations along with it in the same request.
+	1) POST : localhost:8080/eventservice/invitation - This will create an event and invitations along with it in the same request.
 sample input json:
 
 	{
@@ -73,3 +75,4 @@ sample output:
 2) schema.sql will create tables in h2 database once you load the application using spring boot starter.
 
 3) You can compile the application using parent-module pom.xml (mvn clean install) and once it successfully compiles, run the application by runnung AppMain.java from web-controllers module or alternatively executing mvn:spring-boot:run from web-controller package.
+4) I wanted to further break the module to more services, add test cases and add more improvements however I couldn't get enough time for that due to my schedule. However, I'm willing to discuss more.
