@@ -52,7 +52,7 @@ sample input json:
 		"status":2
 }
 
-4) GET: localhost:8080/eventservice/events/1/responses - displays responses for an event
+4) GET: localhost:8080/eventservice/events/{id}/responses - displays responses for an event
 sample output:
 {
     "event": {
